@@ -1,10 +1,11 @@
 let n=50;
-const canvasWidth=960;
-let pixelWidth=960/n;
+const canvasWidth=480;
+let pixelWidth=canvasWidth/n;
+let rgbMode=false;
 
 const resize=document.querySelector("#resize");
 const container=document.querySelector("#container");
-
+const rgb=document.querySelector("#rgb");
 grid(n, pixelWidth);    //just to create a default 50x50 grid
 
 resize.addEventListener("click", () => {
@@ -15,10 +16,14 @@ resize.addEventListener("click", () => {
         alert("Please enter width <99.");
         n=Number(prompt("Add grid size(<99)- "));
     }
-    pixelWidth=960/n;
+    pixelWidth=canvasWidth/n;
     grid(n, pixelWidth);
-})
+});
 
+rgb.addEventListener("click", (e) => {
+    rgbMode=!rgbMode;
+    console.log("rgb mode on");
+});
 
 function grid(n, pixelWidth){
     container.innerHTML="";
@@ -26,13 +31,23 @@ function grid(n, pixelWidth){
         {
             const temp=document.createElement("div");
             temp.classList.add("pixel");
-            temp.style.cssText=`width:${pixelWidth}px; height:${pixelWidth}px; box-sizing: border-box; border:1px solid black;`
+            temp.style.cssText=`width:${pixelWidth}px; height:${pixelWidth}px; box-sizing: border-box; border:thin solid black;`
             //added the eventlistener while creating the divs itself to save us trouble.
             temp.addEventListener("mouseover", (e) => {
                 console.log(`colored ${i}`);
-                temp.style.backgroundColor="lightblue";
+                if(rgbMode){
+                    const r=Math.floor(Math.random()*256);
+                    const g=Math.floor(Math.random()*256);
+                    const b=Math.floor(Math.random()*256);
+                    temp.style.backgroundColor=`rgb(${r}, ${g}, ${b})`;
+                }
+                else{
+                    temp.style.backgroundColor="lightblue";
+                }
+
             });
             container.appendChild(temp);
         }
 }
+
 
