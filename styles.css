@@ -6,32 +6,70 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #ffeedd;
 }
-.heading{
 
-}
-.intro{
-
-}
 .box{
-    border: 2px solid green;
-    width: 640px;
-    height: 640px;
+    border: 5px solid #373737;
+    border-radius: 50px;
+    background-color: #FF474C;
+    width: 1000px;
     display: flex;
+    gap: 20px;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-around;
 }
+
+#header{
+    align-self: center;
+    text-align: center;
+    color:  #FFD700;
+}
+
+.heading{
+    font-size: 65px;
+}
+
+.intro{
+    font-size: 30px;
+}
+
 #container{
-    border: 2px solid orange;
+    border: 2px solid #373737;
+    background-color: #e2e2e2;
+    align-self: center;
     width: 480px;
     height: 480px;
     display: flex;
     flex-wrap: wrap;
 }
+
 button{
     padding: 20px;
     border-radius: 10px;
+    border: 3px solid #373737;
+    background-color: #FFEB3B;
     font-size: 20px;
 }
 
+#buttons{
+    display: flex;
+    gap: 20px;
+}
+
+.knob{
+    background-color: #e8e8e8;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #373737;
+    border-radius: 100px;
+}
+
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 5px;
+}
